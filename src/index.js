@@ -25,7 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const horloge = () => {
     // ciblage
     const divHorloge = document.getElementById('affichage'),
-          aiguilleHeu = document.getElementById('aiguilleHeu');
+          aiguilleHeu = document.getElementById('aiguilleHeu'),
+          aiguilleMin = document.getElementById('aiguilleMin'),
+          aiguilleSec = document.getElementById('aiguilleSec');
     // Initialisation de la date
     const maDate = new Date();
     // Récupération des infos
@@ -42,7 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // Affichage
     divHorloge.innerHTML = `${heures} : ${minutes} : ${secondes}`;
     // Position des aiguilles
-    aiguilleHeu.style.transform = `rotate(${30 * heures}deg)`;
+    aiguilleHeu.style.transform = `rotate(${30 * heures + 0.5 * minutes + 0.5 / 60 * secondes}deg)`;
+    aiguilleMin.style.transform = `rotate(${6 * minutes + 0.1 * secondes}deg)`;
+    aiguilleSec.style.transform = `rotate(${6 * secondes}deg)`;
+
   }
 
   createCadran();
