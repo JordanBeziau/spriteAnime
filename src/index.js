@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
       cadran.appendChild(tempNode);
     }
   };
-
   // Fonction formatage heure
   const formatHeure = (nombre) => nombre < 10 ? `0${nombre}` : nombre;
-
   // Fonction affichage de l'heure
   const horloge = () => {
     // ciblage
@@ -30,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
           aiguilleSec = document.getElementById('aiguilleSec');
     // Initialisation de la date
     const maDate = new Date();
+    let   ampm = '';
     // Récupération des infos
     let annee = maDate.getFullYear(),
         mois = maDate.getMonth(),
@@ -37,12 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
         heures = maDate.getHours(),
         minutes = maDate.getMinutes(),
         secondes = maDate.getSeconds();
+    // Calcul de la rotation des aiguilles
+    heures >= 12 ? ampm = 'pm' : ampm = 'am';
     // Formatage de l'heure
     heures = formatHeure(heures);
     minutes = formatHeure(minutes);
     secondes = formatHeure(secondes);
     // Affichage
-    divHorloge.innerHTML = `${heures} : ${minutes} : ${secondes}`;
+    divHorloge.innerHTML = `${heures} : ${minutes} : ${secondes} ${ampm}`;
     // Position des aiguilles
     aiguilleHeu.style.transform = `rotate(${30 * heures + 0.5 * minutes + 0.5 / 60 * secondes}deg)`;
     aiguilleMin.style.transform = `rotate(${6 * minutes + 0.1 * secondes}deg)`;

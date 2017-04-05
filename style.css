@@ -30,9 +30,10 @@ div#affichage {
   height: 50px;
   top: 65%;
   line-height: 50px;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0,0,0,0.03);
   border: 1px solid grey;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  text-transform: uppercase;
   text-align: center;
 }
 div.heuresCadran {
@@ -42,7 +43,7 @@ div.heuresCadran {
   width: 80px;
   height: 776px;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.4rem;
   padding-top: 20px;
 }
 div#cadran::after {
